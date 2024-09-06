@@ -8,3 +8,4 @@ In the context of your schema definition, trim: true is a Mongoose option used f
 For example, if a user enters an email address like " example@example.com ", the trim: true option will ensure that the spaces are removed, and the value "example@example.com" is saved
 
 In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
+In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
