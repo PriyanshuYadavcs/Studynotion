@@ -1,44 +1,25 @@
-The { timestamps: true } option in Mongoose automatically adds two fields to your schema:
+16-09-2024 
 
-createdAt: Stores the date and time when the document was first created.
-updatedAt: Stores the date and time when the document was last updated.
+=course: {
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		ref: "Course",
+		index: true,
+	},
+});
 
-In the context of your schema definition, trim: true is a Mongoose option used for String fields. It automatically removes any leading or trailing whitespace from the value before it gets saved to the database.
 
-For example, if a user enters an email address like " example@example.com ", the trim: true option will ensure that the spaces are removed, and the value "example@example.com" is saved
+what does this index true means
+ans = index: true for a field creates an index for that field in the MongoDB database. Indexes improve query performance by allowing the database to quickly locate and retrieve records that match the search criteria for that field.
 
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-The { timestamps: true } option in Mongoose automatically adds two fields to your schema:
+.exec(): This method explicitly executes the query. In Mongoose, queries like .find() or .findById() return a query object, not a promise, unless .exec() is used. Calling .exec() converts the query into a promise, which allows the use of await for asynchronous operations.
 
-createdAt: Stores the date and time when the document was first created.
-updatedAt: Stores the date and time when the document was last updated.
+The {} inside the find() method is the query object. It tells MongoDB how to filter the documents from the collection.
+In this case, the object { _id: { $ne: categoryId } } is specifying a condition that involves the _id field of the documents.
 
-In the context of your schema definition, trim: true is a Mongoose option used for String fields. It automatically removes any leading or trailing whitespace from the value before it gets saved to the database.
 
-For example, if a user enters an email address like " example@example.com ", the trim: true option will ensure that the spaces are removed, and the value "example@example.com" is saved
+const mostSellingCourses = allCourses.sort((a, b) => b.sold - a.sold).slice(0, 10);
 
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-The { timestamps: true } option in Mongoose automatically adds two fields to your schema:
-
-createdAt: Stores the date and time when the document was first created.
-updatedAt: Stores the date and time when the document was last updated.
-
-In the context of your schema definition, trim: true is a Mongoose option used for String fields. It automatically removes any leading or trailing whitespace from the value before it gets saved to the database.
-
-For example, if a user enters an email address like " example@example.com ", the trim: true option will ensure that the spaces are removed, and the value "example@example.com" is saved
-
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-The { timestamps: true } option in Mongoose automatically adds two fields to your schema:
-
-createdAt: Stores the date and time when the document was first created.
-updatedAt: Stores the date and time when the document was last updated.
-
-In the context of your schema definition, trim: true is a Mongoose option used for String fields. It automatically removes any leading or trailing whitespace from the value before it gets saved to the database.
-
-For example, if a user enters an email address like " example@example.com ", the trim: true option will ensure that the spaces are removed, and the value "example@example.com" is saved
-
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
-In the context of databases and programming, enum (short for enumeration) is a special data type that defines a set of predefined, fixed values that a variable can take. In your example, enum: ["Admin", "Student", "audience"], the accountType field can only have one of these three values: "Admin", "Student", or "audience".
+If b.sold - a.sold is positive (i.e., b.sold is greater than a.sold), it returns a positive number, which tells the sort() function that b should come before a.
+If b.sold - a.sold is negative (i.e., a.sold is greater than b.sold), it returns a negative number, which tells the sort() function that a should come before b.
+If b.sold - a.sold is zero, it means both have the same sold value, so their order remains unchanged relative to each other.
