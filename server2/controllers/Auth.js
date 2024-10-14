@@ -248,7 +248,7 @@ exports.changePassword= async (req, res)=>{
         console.error("Error occurred while updating password:", error)
         return res.status(500).json({
           success: false,
-          message: "Error occurred while updating password",
+          message: "Error  updating password",
           error: error.message,
         })
       }
